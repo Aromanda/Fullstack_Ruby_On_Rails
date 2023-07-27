@@ -10,8 +10,92 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_000923) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_201154) do
+  create_table "addresses", force: :cascade do |t|
+    t.string "street_address"
+    t.string "city"
+    t.string "postal_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "address_id", null: false
+    t.string "phone", null: false
+    t.string "email"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_customers_on_address_id"
+    t.index ["user_id"], name: "index_customers_on_user_id", unique: true
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "address_id", null: false
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_employees_on_address_id"
+    t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "order_status_id", null: false
+    t.integer "restaurant_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
+  end
+
+  create_table "product_orders", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_product_orders_on_order_id"
+    t.index ["product_id"], name: "index_product_orders_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.string "name", null: false
+    t.string "description"
+    t.integer "cost", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_products_on_restaurant_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "address_id", null: false
+    t.string "phone"
+    t.string "email"
+    t.string "name", null: false
+    t.integer "price_range", default: 1
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_restaurants_on_address_id"
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -20,7 +104,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_000923) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "customers", "addresses"
+  add_foreign_key "employees", "addresses"
+  add_foreign_key "employees", "users"
+  add_foreign_key "orders", "customers"
+  add_foreign_key "orders", "order_statuses"
+  add_foreign_key "orders", "restaurants"
+  add_foreign_key "product_orders", "orders"
+  add_foreign_key "product_orders", "products"
+  add_foreign_key "products", "restaurants"
+  add_foreign_key "restaurants", "addresses"
+  add_foreign_key "restaurants", "users"
 end
