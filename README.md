@@ -63,10 +63,10 @@ Things you may want to cover:
 ## Analyse du diagramme d'entité-relation (ERD)
 
 ### Identifiez une paire de tables qui ont une relation de plusieurs à un. Expliquez pourquoi elles ont une telle relation.
-    - 
+    - On peut voir que la table "Users" a une relation de plusieurs à un vers les tables employees et customers. Ces dernieres tables ont besoin d'un user_id pour pouvoir être utile à l'authentification. 
 
 ### Identifiez une paire de tables qui ont une relation de un à un. Expliquez pourquoi elles ont une telle relation.
-    - 
+    - On peut identifier les tables orders et order_statuses comme une relation un à un. Dans la table orders, une key value oreder_status_id est généré pour retrouver les oreder_statuses
 
 ### Identifiez une relation de plusieurs à plusieurs dans le diagramme. Quelles tables sont impliquées et pourquoi?
-    - 
+    - Pour la relation plusieurs à plusieurs, on peut identifier les tables users et orders ou products, on a les tables de liaison qui sont customers et restaurants. Il y a plusieurs keys value qui sont partagés entre les atables. 
