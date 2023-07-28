@@ -1,0 +1,21 @@
+<!-- app/views/employees/_form.html.erb -->
+<%= form_with model: @employee, url: employees_path do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :position %><br>
+    <%= form.text_field :position %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
