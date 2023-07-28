@@ -1,0 +1,17 @@
+/* home.css */
+
+/* Center the container using Flexbox */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This ensures the container takes the full viewport height */
+  }
+  
+  /* Style the text */
+  .welcome-text {
+    font-size: 24px; /* Or any size you prefer */
+    font-weight: bold;
+    /* Add any other styles you want for the text */
+  }
+  
