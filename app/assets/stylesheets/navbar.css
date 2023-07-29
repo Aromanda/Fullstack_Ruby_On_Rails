@@ -1,59 +1,67 @@
-/* navbar.css */
-body {
-  margin: 0;
-  padding: 0;
-}
+/* app/assets/stylesheets/navbar.css */
 
+/* Styles for the navigation bar container */
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
-  background-color: #f5f5f5;
-  margin: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
 
-.navbar-left {
-  font-size: 24px;
-}
-
+/* Styles for the "RFD Admin" link */
 .rf-admin-link {
-  text-decoration: none;
-  color: #000;
-}
-
-/* Center the "Employees" button */
-.navbar-center {
-  flex: 1;
-  text-align: center;
-}
-
-.employees-button {
-  display: inline-block;
-  background-color: #007bff;
   color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Styles for the buttons in the navbar */
+.navbar-center button {
+  background-color: #444;
   border: none;
+  color: #fff;
+  padding: 8px 12px;
+  margin: 0 5px;
   cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Styles for the links inside the buttons */
+.navbar-center button a {
+  color: #fff;
   text-decoration: none;
 }
 
-.employees-button:hover {
-  background-color: #0056b3;
-}
-
-/* Apply styles to the "Sign in" button */
+/* Styles for the "Sign in" button */
 .signin-button {
-  color: #fff;
-  background-color: #007bff;
-  padding: 5px 10px;
+  background-color: #444;
   border: none;
+  color: #fff;
+  padding: 8px 12px;
   cursor: pointer;
-  text-decoration: none;
-  border-radius: 4px;
+  font-size: 16px;
 }
 
-.signin-button:hover {
-  background-color: #0056b3;
+/* Styles for the "Welcome" text in the navbar */
+.navbar-right div {
+  margin-right: 10px;
+  font-size: 16px;
 }
+
+/* Styles for the "Sign out" button */
+.navbar-right form {
+  display: inline;
+}
+
+/* Hover styles for buttons */
+button:hover, .signin-button:hover {
+  background-color: #555;
+}
+
+/* Active styles for buttons */
+button:active, .signin-button:active {
+  background-color: #666;
+}
+

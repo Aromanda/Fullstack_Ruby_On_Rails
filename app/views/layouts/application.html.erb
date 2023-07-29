@@ -6,20 +6,24 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <!-- Include the application stylesheet -->
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
-
+  
   <!-- Include the navbar CSS -->
   <%= stylesheet_link_tag 'navbar', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
+  <%= javascript_importmap_tags %>
 </head>
-<!-- Include the navbar partial -->
-<%= render 'shared/navbar' %>
 <body>
+  <!-- Include the navbar partial -->
+  <%= render 'shared/navbar' %>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
   <%= yield %>
 </body>
 </html>
+
 
 
