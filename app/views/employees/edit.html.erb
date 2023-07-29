@@ -1,7 +1,13 @@
 <!-- app/views/employees/edit.html.erb -->
-<h1>Edit Employee</h1>
+<%= stylesheet_link_tag "edit", media: "all" %>
 
-<%= render 'form' %>
+<div class="edit-container">
+  <h1>Edit Employee</h1>
 
-<%= link_to 'Show', employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %> 
+  <%= render 'form' %>
+
+  <div class="actions-container">
+    <%= link_to 'Show', employee_path(@employee) %>
+    <%= link_to 'Back', employees_path %>
+  </div>
+</div>
