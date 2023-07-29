@@ -4,6 +4,14 @@
     <%= link_to "RFD Admin", root_path, class: "rf-admin-link" %>
   </div>
   
+  <div class="navbar-center">
+    <% if user_signed_in? %>
+      <button class="employees-button">
+        <%= link_to "Employees", employees_path, class: "employees-link" %>
+      </button>
+    <% end %>
+  </div>
+
   <div class="navbar-right">
     <% if user_signed_in? %>
       <div>Welcome <%= current_user.email %></div>
@@ -11,7 +19,5 @@
     <% else %>
       <%= button_to "Sign in", new_user_session_path, class: "signin-button" %>
     <% end %>
-    <!-- Link to Employees' index page -->
-    <%= link_to "Employees", employees_path, class: "employees-link" %>
   </div>
 </div>
