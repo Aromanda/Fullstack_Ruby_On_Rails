@@ -1,10 +1,19 @@
 <!-- app/views/employees/new.html.erb -->
-<div class="page-wrapper">
-  <h1>New Employee</h1>
 
-  <div class="content">
-    <%= render 'form' %>
+<h1>New Employee</h1>
 
-    <%= link_to 'Back', employees_path %>
-  </div>
-</div>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |message| %>
+    <div class="alert alert-danger">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= form_with(model: @employee, url: employees_path, local: true, data: { turbo: "false" }) do |form| %>
+  <%= render 'form', form: form %>
+
+  <%= form.submit "Create Employee", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Back", employees_path, class: "btn btn-secondary" %>
