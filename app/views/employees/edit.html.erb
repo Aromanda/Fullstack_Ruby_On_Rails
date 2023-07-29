@@ -1,38 +1,54 @@
 <!-- app/views/employees/edit.html.erb -->
-<h1>Edit Employee</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Employee</title>
+  <%= stylesheet_link_tag 'edit', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <nav class="navbar">
+    <!-- Your navbar content goes here -->
+    <!-- Replace "Your Navbar Content" with the actual content of your navbar -->
+  </nav>
 
-<%= form_with(url: edit_employee_path, method: :get, local: true) do |form| %>
-  <div class="form-group">
-    <%= form.label :employee_id, "Select Employee" %>
-    <%= form.collection_select :employee_id, Employee.all, :id, proc { |employee| employee.user.name }, {}, {class: "form-control"} %>
-  </div>
+  <div class="edit-container">
+    <h1>Edit Employee</h1>
 
-  <%= form.submit "Select Employee", class: "btn btn-primary" %>
-<% end %>
+    <%= form_with(url: edit_employee_path, method: :get, local: true) do |form| %>
+      <div class="form-group">
+        <%= form.label :employee_id, "Select Employee" %>
+        <%= form.collection_select :employee_id, Employee.all, :id, proc { |employee| employee.user.name }, {}, {class: "form-control"} %>
+      </div>
 
-<hr/>
+      <%= form.submit "Select Employee", class: "btn btn-primary" %>
+    <% end %>
 
-<% if @employee.present? %>
-  <%= form_with(model: @employee, url: employee_path(@employee), local: true) do |form| %>
-    <div class="form-group">
-      <%= form.fields_for :user do |user_form| %>
-        <strong>Employee Name:</strong>
-        <%= user_form.text_field :name, value: @employee.user.name, class: "form-control" %>
+    <hr/>
+
+    <% if @employee.present? %>
+      <%= form_with(model: @employee, url: employee_path(@employee), local: true) do |form| %>
+        <div class="form-group">
+          <%= form.fields_for :user do |user_form| %>
+            <strong>Employee Name:</strong>
+            <%= user_form.text_field :name, value: @employee.user.name, class: "form-control" %>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :phone %>
+          <%= form.text_field :phone, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :email %>
+          <%= form.email_field :email, class: "form-control" %>
+        </div>
+
+        <%= form.submit "Update Employee", class: "btn btn-primary" %>
       <% end %>
-    </div>
+    <% end %>
 
-    <div class="form-group">
-      <%= form.label :phone %>
-      <%= form.text_field :phone, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :email %>
-      <%= form.email_field :email, class: "form-control" %>
-    </div>
-
-    <%= form.submit "Update Employee", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
-
-<%= link_to "Back", employees_path, class: "btn btn-secondary" %>
+    <%= link_to "Back", employees_path, class: "btn btn-secondary" %>
+  </div>
+</body>
+</html>
