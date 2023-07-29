@@ -1,5 +1,5 @@
 <!-- app/views/employees/_form.html.erb -->
-<%= form_with model: @employee, url: employees_path do |form| %>
+<%= form_with model: @employee do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -19,3 +19,4 @@
     <%= form.submit %>
   </p>
 <% end %>
+
