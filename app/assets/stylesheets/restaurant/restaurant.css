@@ -1,0 +1,70 @@
+/* app/assets/stylesheets/restaurant/restaurant.css */
+/* Styles for the Restaurant List page */
+
+/* Center the table and heading within its container */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Apply styles to the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Add more styling here if needed */
+  }
+  
+  /* Apply styles to the table header cells */
+  th {
+    background-color: #f2f2f2;
+    padding: 8px;
+  }
+  
+  /* Apply styles to the table data cells */
+  td {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Apply styles to the container of "Show," "Edit," and "Desactivate" links */
+  .actions-container {
+    display: flex;
+    gap: 10px; /* Adjust the gap between the links/buttons */
+  }
+  
+  /* Apply styles to the "Show" and "Edit" links */
+  .show-link,
+  .edit-link {
+    color: #007bff; /* Blue color, you can change it to your desired color */
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  /* Apply styles to the "Desactivate" link */
+  .desactivate-link {
+    color: #fff;
+    background-color: #dc3545; /* Red color, you can change it to your desired color */
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style the "New Restaurant" link as a button */
+  .new-restaurant-button {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #007bff; /* Blue color, you can change it to your desired color */
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px; /* Optional: add rounded corners */
+  }
+  
+  .new-restaurant-button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+  

@@ -1,32 +1,40 @@
 <!-- app/views/restaurants/index.html.erb -->
 
-<h1>List of Restaurants</h1>
+<%= stylesheet_link_tag "restaurant/restaurant", media: "all" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Price Range</th>
-      <th>Active</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
+<div class="table-container">
+  <h1>List of Restaurants</h1>
+
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to restaurant.name, restaurant %></td>
-        <td><%= restaurant.phone %></td>
-        <td><%= restaurant.email %></td>
-        <td><%= restaurant.price_range %></td>
-        <td><%= restaurant.active ? 'Yes' : 'No' %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Deactivate', restaurant, method: :delete, data: { confirm: 'Are you sure you want to deactivate this restaurant?' } %></td>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Price Range</th>
+        <th>Active</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td><%= link_to restaurant.name, restaurant %></td>
+          <td><%= restaurant.phone %></td>
+          <td><%= restaurant.email %></td>
+          <td><%= restaurant.price_range %></td>
+          <td><%= restaurant.active ? 'Yes' : 'No' %></td>
+          <td>
+            <div class="actions-container">
+              <%= link_to 'Show', restaurant, class: 'show-link' %>
+              <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'edit-link' %>
+              <%= link_to 'Desactivate', restaurant, method: :delete, data: { confirm: 'Are you sure you want to desactivate this restaurant?' }, class: 'desactivate-link' %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= link_to 'New Restaurant', new_restaurant_path, class: 'new-restaurant-button' %>
