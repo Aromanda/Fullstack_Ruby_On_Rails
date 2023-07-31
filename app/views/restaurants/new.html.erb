@@ -1,5 +1,10 @@
-<h1>New Restaurant</h1>
+<!-- app/views/restaurants/new.html.erb -->
+<%= stylesheet_link_tag "restaurant/restaurant", media: "all" %>
 
-<%= render 'form', restaurant: @restaurant %>
+<div class="page-wrapper">
+  <h1>New Restaurant</h1>
 
-<%= link_to 'Back', restaurants_path %>
+  <%= render 'form', restaurant: @restaurant %>
+
+  <%= link_to 'Back', restaurants_path, class: 'back-link' %>
+</div>
