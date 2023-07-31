@@ -1,9 +1,16 @@
-<h1><%= @restaurant.name %></h1>
+<!-- app/views/restaurants/show.html.erb -->
+<%= stylesheet_link_tag "restaurant/restaurant", media: "all" %>
 
-<p><strong>Phone:</strong> <%= @restaurant.phone %></p>
-<p><strong>Email:</strong> <%= @restaurant.email %></p>
-<p><strong>Price Range:</strong> <%= @restaurant.price_range %></p>
-<p><strong>Active:</strong> <%= @restaurant.active ? 'Yes' : 'No' %></p>
+<div class="page-wrapper">
+  <h1><%= @restaurant.name %></h1>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+  <p><strong>Phone:</strong> <%= @restaurant.phone %></p>
+  <p><strong>Email:</strong> <%= @restaurant.email %></p>
+  <p><strong>Price Range:</strong> <%= @restaurant.price_range %></p>
+  <p><strong>Active:</strong> <%= @restaurant.active ? 'Yes' : 'No' %></p>
+
+  <div class="links-container">
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'edit-link' %> |
+    <%= link_to 'Back', restaurants_path, class: 'back-link' %>
+  </div>
+</div>
