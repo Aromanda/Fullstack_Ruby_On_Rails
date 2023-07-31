@@ -41,15 +41,6 @@
     padding: 5px 10px;
   }
   
-  /* Apply styles to the "Desactivate" link */
-  .desactivate-link {
-    color: #fff;
-    background-color: #dc3545; /* Red color, you can change it to your desired color */
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
   /* Style the "New Restaurant" link as a button */
   .new-restaurant-button {
     display: inline-block;
